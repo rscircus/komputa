@@ -1,5 +1,20 @@
+// Xor = OR(And(left, NOT(left)), AND(NOT(right), right))
+
 /**
 * XOR gate:
 * out = 1 if (a != b)
 * 	0 otherwise
 */
+
+CHIP xor {
+
+  IN a, b;
+  OUT out;
+
+  PARTS:
+  not(in=a, out=nota);
+  not(in=b, out=notb);
+  and(a=a, b=notb, out=left);
+  and(a=nota, b=b, out=right);
+  or(a=left, b=right, out=out);
+}
