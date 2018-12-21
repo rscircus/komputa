@@ -3,3 +3,11 @@
 * out = 1 if ( in = 0 )
 * 	0 otherwise
 */
+
+CHIP not {
+  IN in;
+  OUT out;
+
+  PARTS:
+  // (in NAND in)
+}

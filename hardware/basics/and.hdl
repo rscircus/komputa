@@ -3,3 +3,11 @@
 * out = 1 if (a == 1 and b == 1)
 *       0 otherwise
 */
+
+CHIP and {
+  IN a, b;
+  OUT out;
+
+  PARTS:
+  // (x NAND y) NAND (x NAND y)
+}

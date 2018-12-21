@@ -1,11 +1,6 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/01/Or16.tst
-
-load Or16.hdl,
-output-file Or16.out,
-compare-to Or16.cmp,
+load or16.hdl,
+output-file or16.out,
+compare-to or16.cmp,
 output-list a%B1.16.1 b%B1.16.1 out%B1.16.1;
 
 set a %B0000000000000000,
