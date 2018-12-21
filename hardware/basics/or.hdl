@@ -1,7 +1,7 @@
 /**
 * OR gate:
 * out = 1 if (a == 1 or b ==1)
-* 	0 otherwise
+*	0 otherwise
 */
 
 CHIP or {
@@ -9,5 +9,7 @@ CHIP or {
   OUT out;
 
   PARTS:
-  // (x NAND x) NAND (y NAND y)
+  Nand(a=a, b=a, out=left);
+  Nand(a=b, b=b, out=right);
+  Nand(a=left, b=right, out=out);
 }

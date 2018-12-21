@@ -9,5 +9,6 @@ CHIP and {
   OUT out;
 
   PARTS:
-  // (x NAND y) NAND (x NAND y)
+  Nand(a=a, b=b, out=side);
+  Nand(a=side, b=side, out=out);
 }

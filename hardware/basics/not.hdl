@@ -9,5 +9,5 @@ CHIP not {
   OUT out;
 
   PARTS:
-  // (in NAND in)
+  Nand(a=in, b=in, out=out);
 }
