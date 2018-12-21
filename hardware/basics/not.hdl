@@ -1,0 +1,5 @@
+/**
+* NOT gate
+* out = 1 if ( in = 0 )
+* 	0 otherwise
+*/

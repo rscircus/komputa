@@ -1,0 +1,5 @@
+/**
+* XOR gate:
+* out = 1 if (a != b)
+* 	0 otherwise
+*/
