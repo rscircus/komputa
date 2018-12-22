@@ -1,0 +1,13 @@
+// out_a, out_b = 0 - assuming vhdl defaults to this
+// out_a = in if sel = 0
+// out_b = in if sel = 1
+
+CHIP dmux {
+  IN in, sel;
+  OUT a, b;
+
+  PARTS:
+  not(in=sel, out=notsel);
+  and(a=in, b=notsel, out=a);
+  and(a=in, b=sel, out=b);
+}
