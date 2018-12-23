@@ -1,0 +1,21 @@
+/** Ors 8 bits.
+*
+* E.g. 01101011 = 1
+* E.g. 00000000 = 0
+*/
+
+CHIP or8way {
+  IN in[8];
+  OUT out;
+
+  PARTS:
+  or(a=in[0], b=in[1], out=t1);
+  or(a=t1, b=in[2], out=t2);
+  or(a=t2, b=in[3], out=t3);
+  or(a=t3, b=in[4], out=t4);
+  or(a=t4, b=in[5], out=t5);
+  or(a=t5, b=in[6], out=t6);
+  or(a=t6, b=in[7], out=out);
+}
+
+
