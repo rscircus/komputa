@@ -1,0 +1,27 @@
+
+/**
+ * s=000 -> a | g1  | g5
+ * s=001 -> b | g1  |
+ * s=010 -> c | g2  |
+ * s=011 -> d | g2  |
+ * s=100 -> e | g3  | g6
+ * s=101 -> f | g3  |
+ * s=110 -> g | g4  |
+ * s=111 -> h | g4  |
+ */
+CHIP mux8way16 {
+  IN a[16], b[16], c[16], d[16], e[16], f[16], g[16], h[16],
+     sel[3];
+  OUT out[16];
+
+  PARTS:
+  mux16(a=a, b=b, sel=sel[0], out=aORb);
+  mux16(a=c, b=d, sel=sel[0], out=cORd);
+  mux16(a=aORb, b=cORd, sel=sel[1], out=upper);
+
+  mux16(a=e, b=f, sel=sel[0], out=eORf);
+  mux16(a=g, b=h, sel=sel[0], out=gORh);
+  mux16(a=eORf, b=gORh, sel=sel[1], out=lower);
+
+  mux16(a=upper, b=lower, sel=sel[2], out=out);
+}

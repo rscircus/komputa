@@ -1,0 +1,15 @@
+/**
+ * s=00 -> a
+ * s=01 -> b
+ * s=10 -> c
+ * s=11 -> d
+ */
+CHIP mux4way16 {
+  IN a[16], b[16], c[16], d[16], sel[2];
+  OUT out[16];
+
+  PARTS:
+  mux16(a=a, b=b, sel=sel[0], out=aORb);
+  mux16(a=c, b=d, sel=sel[0], out=cORd);
+  mux16(a=aORb, b=cORd, sel=sel[1], out=out);
+}
