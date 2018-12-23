@@ -1,4 +1,3 @@
-// mux = OR( AND(A, NOT(S)), AND(B,S))
 /**
 * mux chip:
 * out = a if (sel = 0)
@@ -15,3 +14,5 @@ CHIP mux {
   and(a=b, b=sel, out=lower);
   or(a=upper, b=lower, out=out);
 }
+
+// mux = OR( AND(A, NOT(S)), AND(B,S))

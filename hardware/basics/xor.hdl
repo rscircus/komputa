@@ -7,7 +7,6 @@
 */
 
 CHIP xor {
-
   IN a, b;
   OUT out;
 
