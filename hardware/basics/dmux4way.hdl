@@ -1,0 +1,26 @@
+/**
+* s=00 -> a
+* s=01 -> b
+* s=10 -> c
+* s=11 -> d
+*/
+CHIP dmux4way {
+  IN in, sel[2];
+  OUT a, b, c, d;
+
+  PARTS:
+  not(in=sel[0], out=notsel1);
+  not(in=sel[1], out=notsel0);
+
+  and(a=notsel0, b=notsel1, out=isa);
+  and(a=isa, b=in, out=a);
+
+  and(a=notsel0, b=sel[1], out=isb);
+  and(a=isb, b=in, out=b);
+
+  and(a=sel[0], b=notsel1, out=isc);
+  and(a=isc, b=in, out=c);
+
+  and(a=sel[0], b=sel[1], out=isd);
+  and(a=isd, b=in, out=d);
+}
