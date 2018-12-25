@@ -9,16 +9,16 @@ CHIP dmux4way {
   OUT a, b, c, d;
 
   PARTS:
-  not(in=sel[0], out=notsel1);
-  not(in=sel[1], out=notsel0);
+  not(in=sel[0], out=notsel0);
+  not(in=sel[1], out=notsel1);
 
   and(a=notsel0, b=notsel1, out=isa);
   and(a=isa, b=in, out=a);
 
-  and(a=notsel0, b=sel[1], out=isb);
+  and(a=notsel1, b=sel[0], out=isb);
   and(a=isb, b=in, out=b);
 
-  and(a=sel[0], b=notsel1, out=isc);
+  and(a=sel[1], b=notsel0, out=isc);
   and(a=isc, b=in, out=c);
 
   and(a=sel[0], b=sel[1], out=isd);

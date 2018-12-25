@@ -1,0 +1,44 @@
+/**
+* s=000 -> a | group1
+* s=001 -> b |
+* s=010 -> c |
+* s=011 -> d |
+* s=100 -> e | group2
+* s=101 -> f |
+* s=110 -> g |
+* s=111 -> h |
+*/
+
+CHIP dmux8way {
+  IN in, sel[3];
+  OUT a, b, c, d, e, f, g, h;
+
+  PARTS:
+  not(in=sel[0], out=notsel0);
+  not(in=sel[1], out=notsel1);
+  not(in=sel[2], out=notsel2);
+
+  and(a=notsel0, b=notsel1, out=aORe);
+  and(a=aORe, b=notsel2, out=isa);
+  and(a=isa, b=in, out=a);
+  and(a=aORe, b=sel[2], out=ise);
+  and(a=ise, b=in, out=e);
+
+  and(a=notsel1, b=sel[0], out=bORf);
+  and(a=bORf, b=notsel2, out=isb);
+  and(a=isb, b=in, out=b);
+  and(a=bORf, b=sel[2], out=isf);
+  and(a=isf, b=in, out=f);
+
+  and(a=sel[1], b=notsel0, out=cORg);
+  and(a=cORg, b=notsel2, out=isc);
+  and(a=isc, b=in, out=c);
+  and(a=cORg, b=sel[2], out=isg);
+  and(a=isg, b=in, out=g);
+
+  and(a=sel[0], b=sel[1], out=dORh);
+  and(a=dORh, b=notsel2, out=isd);
+  and(a=isd, b=in, out=d);
+  and(a=dORh, b=sel[2], out=ish);
+  and(a=ish, b=in, out=h);
+}
