@@ -8,8 +8,8 @@ Using a generic Hardware Description Language for all chips and gates.
 
 ## Structure
 
-`./hardware/basics` - contains basic Gates, like `And`, `Or`, `Not`, `Xor` and a set of Multiplexers and Demultiplexers. Not optimized for performance yet. Also 4-way, 8-way and 16 bit variants.
-`./hardware/advanced` - contains all the higher level chips to create a simple ALU, which covers the following operations:
+* `./hardware/basics` - contains basic Gates, like `And`, `Or`, `Not`, `Xor` and a set of Multiplexers and Demultiplexers. Not optimized for performance yet. Also 4-way, 8-way and 16 bit variants.
+* `./hardware/advanced` - contains all the higher level chips to create a simple ALU, which covers the following operations:
 
 ```
 |        x         |        y         |zx |nx |zy |ny | f |no |       out        |zr |ng |
