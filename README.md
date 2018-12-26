@@ -46,6 +46,6 @@ Using a generic Hardware Description Language for all chips and gates.
 
 ## Why?
 
-Because I recently climbed up the ladder of abstraction in the other direction: 1 to many computers -- that is, Cloud Stack (Rancher, Kubernetes, Ansible, Helm, you name it..), and wanted to go the other way now: From high-level languages down to 0V and 5V currents.
+Because I recently climbed up the ladder of abstraction in the other direction: 1 to many computers -- that is, Cloud Stack (Rancher, Kubernetes, Ansible, Helm, you name it...), and wanted to go the other way now: From high-level languages down to 0V and 5V currents.
 
 This is all based upon Nisan and Schocken's excellent "The Elements of Computer Science".
