@@ -44,6 +44,22 @@ Using a generic Hardware Description Language for all chips and gates.
 | 0000000000010001 | 0000000000000011 | 0 | 1 | 0 | 1 | 0 | 1 | 0000000000010011 | 0 | 0 |
 ```
 
+## Addendum / Errata
+
+The reading material is not very explicit about how to wire stuff directly. Say, if you need bits to be at specific places: 0 (0 Volts) or 1 (5 Volts) at a specific bit in a chip. You can define this, however, using the `HDL` by:
+
+```
+CHIP Inc16 {
+  IN in[16];
+  out out[16];
+
+  PARTS:
+  Add16(a=in, b[0]=true, out=out);
+  }
+```
+
+This will give `b` the following input: `b=0000000000000001`, as `true` is interpreted as `1` and `b[0]` addresses the _least significant bit_.
+
 ## Why?
 
 Because I recently climbed up the ladder of abstraction in the other direction: 1 to many computers -- that is, Cloud Stack (Rancher, Kubernetes, Ansible, Helm, you name it...), and wanted to go the other way now: From high-level languages down to 0V and 5V currents.
